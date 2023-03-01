@@ -1,12 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
+  const thingsArray = ["Thing 1", "Thing 2"]
+  const para = thingsArray.map(thing=>
+    <p>{thing}</p>
+  )
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold underline text-blue-500">
-        Hello world!
-      </h1>
+      <button>add item</button>
+      {para}
     </div>
   );
 }
