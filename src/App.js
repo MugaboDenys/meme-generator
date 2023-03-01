@@ -5,9 +5,15 @@ function App() {
   const para = thingsArray.map(thing=>
     <p>{thing}</p>
   )
+  const handleThings = ()=>{
+    thingsArray.push(`Thing ${thingsArray.length+1}`)
+    return(
+      console.log(thingsArray)
+      )
+  }
   return (
     <div className="App">
-      <button>add item</button>
+      <button onClick={handleThings}>add item</button>
       {para}
     </div>
   );
