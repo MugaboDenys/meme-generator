@@ -6,10 +6,10 @@ function App() {
   const [count, setCount] = React.useState(0)
 
   function handleNegClick() {
-    setCount(count-1)
+    setCount(prev => prev - 1)
 }
 function handlePlusClick() {
-  setCount(count+1)
+  setCount(prev => prev + 1)
 }
   
   return (
