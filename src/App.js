@@ -3,19 +3,23 @@ import './App.css';
 import React from 'react';
 
 function App() {
-  const [isImportant, setIsImportant] = React.useState("Yes")
+  const [count, setCount] = React.useState(0)
 
-  function handleClick() {
-        setIsImportant("No")
-  }
+  function handleNegClick() {
+    setCount(count-1)
+}
+function handlePlusClick() {
+  setCount(count+1)
+}
   
   return (
-    <div className="state">
-            <h1 className="state--title">Is state important to know?</h1>
-            <div className="state--value cursor-pointer" onClick={handleClick}>
-                <h1>{isImportant}</h1>
+    <div className="counter">
+            <button className="counter--minus" onClick={handleNegClick}>–</button>
+            <div className="counter--count">
+                <h1>{count}</h1>
             </div>
-    </div>
+            <button className="counter--plus" onClick={handlePlusClick}>+</button>
+        </div>
   );
 }
 
