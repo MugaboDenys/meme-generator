@@ -3,22 +3,16 @@ import './App.css';
 import React from 'react';
 
 function App() {
-  const [count, setCount] = React.useState(0)
-
-  function handleNegClick() {
-    setCount(prev => prev - 1)
-}
-function handlePlusClick() {
-  setCount(prev => prev + 1)
-}
+  let isGoingOut = false;
+  
   
   return (
     <div className="counter">
-            <button className="counter--minus" onClick={handleNegClick}>–</button>
+            <button className="counter--minus" >–</button>
             <div className="counter--count">
-                <h1>{count}</h1>
+                <h1>{`${isGoingOut ? "Yes" : "No"}`}</h1>
             </div>
-            <button className="counter--plus" onClick={handlePlusClick}>+</button>
+            <button className="counter--plus">+</button>
         </div>
   );
 }
