@@ -7,6 +7,7 @@ function App() {
   
   
   return (
+
     <div className="counter">
             <button className="counter--minus" >–</button>
             <div className="counter--count">
