@@ -1,42 +1,44 @@
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
+import React from 'react';
 
 function App() {
-  const thingsArray = ["Thing 1", "Thing 2"]
-  const para = thingsArray.map(thing=>
-    <p>{thing}</p>
-  )
-  const handleThings = ()=>{
-    thingsArray.push(`Thing ${thingsArray.length+1}`)
-    return(
-      console.log(thingsArray)
-      )
+  const [contact, setContact] = React.useState({
+    firstName: "John",
+    lastName: "Doe",
+    phone: "+1 (719) 555-1212",
+    email: "itsmyrealname@example.com",
+    isFavorite: false
+})
+  function toggleFavorite(){
+      setContact(contact=>{
+        return{
+        ...contact,
+        isFavorite : !contact.isFavorite}
+      })
   }
-
-  function greeting(name) {
-    const date = new Date()
-    const hours = date.getHours()
-    
-    let timeOfDay
-    if(hours >= 4 && hours < 12) {
-        timeOfDay = "morning"
-    } else if(hours >= 12 && hours < 17) {
-        timeOfDay = "afternoon"
-    } else if(hours >= 17 && hours < 20) {
-        timeOfDay = "evening"
-    } else {
-        timeOfDay = "night"
-    }
-    
-    return `Good ${timeOfDay}, ${name}!`
-}
-
-console.log(greeting("Bob"))
-  
+  let icn = contact.isFavorite ? "star-empty.png" : "star-filled.png"
   return (
     <div className="App">
-      <button onClick={handleThings}>add item</button>
-      {para}
+       <article className="card">
+                <img src="./images/user.png" className="card--image" alt='' />
+                <div className="card--info">
+                    <img 
+                        src={`../images/${icn}`} 
+                        className="card--favorite"
+                        alt=''
+                        onClick={toggleFavorite}
+                    />
+                    <h2 className="card--name">
+                        John Doe
+                    </h2>
+                    <p className="card--contact">+1 (719) 555-1212</p>
+                    <p className="card--contact">itsmyrealname@example.com</p>
+                </div>
+                
+            </article>
     </div>
+
   );
 }
 
